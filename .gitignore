@@ -1,9 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,c,rust,lua
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,python,c,rust,lua
 
-### AoC input files ###
+### AoC input files & output binaries ###
 input.txt
-
+part1
+part2
 
 
 ### C ###
@@ -274,11 +275,11 @@ Cargo.lock
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
+#!.vscode/settings.json
+#!.vscode/tasks.json
+#!.vscode/launch.json
+#!.vscode/extensions.json
+#!.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
 .history/
