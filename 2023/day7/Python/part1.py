@@ -18,10 +18,9 @@ hands = list()
 
 
 for line in inp:
-    hand, bid = line.split(' ')
+    sort_key = int((s := ''.join(map(str, sorted(Counter(line[:5]).values(), reverse=True)))) + ((5 - len(s)) * '0'))
 
-    sort_key = int((s := ''.join(map(str, sorted(Counter(hand).values(), reverse=True)[:3]))) + ((3 - len(s)) * '0'))
-    hands.append((hand, int(bid), sort_key))
+    hands.append((line[:5], int(line[6:]), sort_key))
 
 
 def comp_hand(hand1, hand2):
