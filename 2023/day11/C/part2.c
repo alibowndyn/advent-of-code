@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 int main()
 {
     FILE* input = fopen("../input.txt", "r");
@@ -65,6 +66,8 @@ int main()
     int cnt_y = 0, cnt_x = 0;
     int j = 0;
 
+    // For every galaxy, we will offset that galaxy's (y, x) coordinate with the
+    // number of blank rows & columns before it, times the expansion rate.
     for (int y = 0; fgets(line, sizeof(line), input) != NULL; y++)
     for (int x = 0; x < row_len; x++)
     {
