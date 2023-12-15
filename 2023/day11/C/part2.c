@@ -63,7 +63,8 @@ int main()
 
     int y_coords[galaxies];
     int x_coords[galaxies];
-    int cnt_y = 0, cnt_x = 0;
+    int blank_rows_before_galaxy = 0;
+    int blank_cols_before_galaxy = 0;
     int j = 0;
 
     // For every galaxy, we will offset that galaxy's (y, x) coordinate with the
@@ -73,25 +74,26 @@ int main()
     {
         if (line[x] == '#')
         {
-            cnt_y = cnt_x = 0;
+            blank_rows_before_galaxy = 0;
+            blank_cols_before_galaxy = 0;
 
             // count the number of blank rows before this galaxy
             for (int i = 0; i < num_blank_rows; i++)
             {
                 if (y > blank_row_indices[i])
-                    cnt_y++;
+                    blank_rows_before_galaxy++;
             }
 
             // count the number of blank columns before this galaxy
             for (int i = 0; i < num_blank_cols; i++)
             {
                 if (x > blank_col_indices[i])
-                    cnt_x++;
+                    blank_cols_before_galaxy++;
             }
 
             // coords after the expansion
-            y_coords[j  ] = y + cnt_y * 999999;
-            x_coords[j++] = x + cnt_x * 999999;
+            y_coords[j  ] = y + blank_rows_before_galaxy * 999999;
+            x_coords[j++] = x + blank_cols_before_galaxy * 999999;
         }
     }
 
