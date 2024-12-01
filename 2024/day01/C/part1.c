@@ -10,7 +10,7 @@ int cmp_int(const void *a, const void *b)
 
 int main()
 {
-    char line_buf[15];
+    char line_buf[15]; // 10 digits + 3 spaces + 1 newline + 1 null terminator
     FILE *fp = fopen("../input.txt", "r");
 
     int line_cnt = 0;
@@ -24,15 +24,7 @@ int main()
 
     rewind(fp);
     for (int i = 0; i < line_cnt; i++)
-    {
-        fgets(line_buf, sizeof(line_buf), fp);
-
-        // atoi reads a string until there are no convertible characters left
-        // and since spaces (and newlines) cannot be converted to numbers,
-        // it will stop at those points in the string
-        group1[i] = atoi(line_buf);
-        group2[i] = atoi(line_buf + 8); // the second number starts at the 9th character in a line
-    }
+        fscanf(fp, "%d %d", &group1[i], &group2[i]);
 
     qsort(group1, line_cnt, sizeof(int), cmp_int);
     qsort(group2, line_cnt, sizeof(int), cmp_int);

@@ -2,7 +2,7 @@ inp = open('../input.txt').readlines()
 total_distance = 0
 group1, group2 = [], []
 
-for (id1, id2) in [line.split('   ') for line in inp]:
+for (id1, id2) in [line.split() for line in inp]:
     group1.append(int(id1))
     group2.append(int(id2))
 

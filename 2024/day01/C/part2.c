@@ -19,15 +19,8 @@ int main()
 
     rewind(fp);
     for (int i = 0; i < line_cnt; i++)
-    {
-        fgets(line_buf, sizeof(line_buf), fp);
-
-        // atoi reads a string until there are no convertible characters left
-        // and since spaces (and newlines) cannot be converted to numbers,
-        // it will stop at those points in the string
-        group1[i] = atoi(line_buf);
-        group2[i] = atoi(line_buf + 8); // the second number starts at the 9th character in a line
-    }
+        // `fscanf` skips whitespaces
+        fscanf(fp, "%d %d", &group1[i], &group2[i]);
 
 
     int similarity_score = 0;
